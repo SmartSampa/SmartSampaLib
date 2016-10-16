@@ -16,7 +16,7 @@ import java.time.Duration;
  */
 public class GtfsHandler {
 
-    private static final int UPDATE_INTERVAL_IN_DAYS = 200;//TODO reset gtfs download days to 3
+    private static final int UPDATE_INTERVAL_IN_DAYS = 3;//TODO reset gtfs download days to 3
     private static final long UPDATE_INTERVAL_IN_MILLIS = Duration.ofDays(UPDATE_INTERVAL_IN_DAYS).toMillis();
     private static final String GTFS_DIR_NAME = "gtfs.zip";
     private static final String GTFS_PATH = SmartSampaDir.getPath()+"/"+GTFS_DIR_NAME;

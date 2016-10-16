@@ -18,7 +18,7 @@ public class SmartSampaDir {
     }
 
     public static boolean hasSubDir(String dirName) {
-        return new File(DIRECTORY.getPath()+"/"+dirName).exists();
+        return new File(getPath()+"/"+dirName).exists();
     }
 
     public static String getPath() {

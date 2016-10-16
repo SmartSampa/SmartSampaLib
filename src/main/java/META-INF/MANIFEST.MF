@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Class-Path: httpcore-4.4.4.jar onebusaway-gtfs-hibernate-1.3.4.jar jsr
+ -275-1.0-beta-2.jar xml-apis-1.0.b2.jar jackson-databind-2.7.0.jar co
+ mmons-logging-1.1.1.jar hibernate-core-3.3.1.GA.jar java-hamcrest-2.0
+ .0.0.jar commons-codec-1.9.jar antlr-2.7.6.jar jcoord-1.0.jar core-0.
+ 26.jar junit-4.12.jar GeographicLib-Java-1.44.jar gt-shapefile-15-201
+ 61014.221011-133.jar commons-beanutils-1.9.2.jar jgridshift-1.0.jar g
+ t-referencing-15-20161014.220937-133.jar gt-data-15-20161014.221010-1
+ 33.jar jai_core-1.1.3.jar dom4j-1.6.1.jar onebusaway-gtfs-1.3.4.jar j
+ ackson-annotations-2.7.0.jar commons-collections-3.2.1.jar httpclient
+ -4.5.2.jar commons-lang3-3.4.jar commons-pool-1.5.4.jar mysql-connect
+ or-java-5.1.6.jar hamcrest-core-1.3.jar hamcrest-junit-2.0.0.0.jar on
+ ebusaway-csv-entities-1.1.4.jar jdom-1.1.3.jar gt-api-15-20161014.220
+ 939-133.jar jta-1.1.jar gt-metadata-15-20161014.220936-133.jar guava-
+ 19.0.jar slf4j-log4j12-1.5.6.jar gt-opengis-15-20161014.220929-133.ja
+ r jts-1.13.jar log4j-1.2.14.jar gt-main-15-20161014.220956-133.jar co
+ mmons-math3-3.6.1.jar slf4j-api-1.5.6.jar jackson-core-2.7.0.jar
+
