@@ -1,15 +1,18 @@
 package com.smartsampa.busapi;
 
 import com.smartsampa.gtfsapi.GtfsAPI;
-import com.smartsampa.gtfswrapper.GtfsAPIFacade;
 import com.smartsampa.gtfsapi.GtfsDownloader;
 import com.smartsampa.gtfsapi.GtfsHandler;
+import com.smartsampa.gtfswrapper.GtfsAPIFacade;
 import com.smartsampa.olhovivoapi.OlhovivoAPI;
 import com.smartsampa.shapefileapi.ShapefileAPI;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -19,6 +22,8 @@ import java.util.regex.Pattern;
 public final class BusAPI {
 
     private static final Pattern TRIP_ID_PATTERN = Pattern.compile("(\\w+-\\d+)-([12])");
+    private static final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+
 
     private static String sptransLogin;
     private static String sptransPassword;
@@ -38,7 +43,7 @@ public final class BusAPI {
         ShapefileAPI shapefile = new ShapefileAPI("faixa_onibus/sirgas_faixa_onibus.shp");
 
         OlhovivoAPI olhovivo = new OlhovivoAPI(olhovivoKey);
-        olhovivo.authenticate();
+        authenticateAtOlhovivoEveryTenMinutes(olhovivo);
 
         Provider.setGtfsAPIFacade(gtfsAPIFacade);
         Provider.setOlhovivoAPI(olhovivo);
@@ -108,5 +113,14 @@ public final class BusAPI {
             return Heading.getHeadingFromInt(heading);
         }
         return null;
+    }
+
+    private static void authenticateAtOlhovivoEveryTenMinutes(OlhovivoAPI olhovivoAPI) {
+        int initialDelay = 0;
+        int interval = 10;
+        scheduler.scheduleAtFixedRate(() -> {
+            boolean result = olhovivoAPI.authenticate();
+            System.out.println("Authentication is: " + result);
+        }, initialDelay, interval, TimeUnit.MINUTES);
     }
 }
